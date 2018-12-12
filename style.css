@@ -17,27 +17,291 @@ body {
     line-height: 1.6;
 }
 
-
+/*mobil*/
 /* HLAVICKA */
+.hlavicka{
+    background: blue url(images/island-hlavicka.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    }
+
+.hlavicka::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+    } 
 
 .titulek {
     font-family: 'Raleway', serif;
-}
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+    opacity: 0.9;
+    }
 
+.perex{
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    opacity: 0.9;
+    }
+
+.autor{
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 20px;
+    border-width: 2px 0 0 0;
+    width: 300px;
+    margin: auto;
+    opacity: 0.9;
+   }    
+/*takováto - delší čára, než je v zadání se mi líbí více. Logicky spojuje text s autorem a je naprosto přirozená.
+... a popravdě nevím, jak udělat, aby byla čára menší než podpis (kromě toho, že se mi to vůbec nelíbí...)*/
 
 /* MENU */
+.menu{
+    text-transform: uppercase;
+    font-family: 'Raleway', serif;
+    padding: 30px;
+}
 
+.menu li{
+    display: block;
+    text-align: center;
+    border: solid lightgrey;
+    border-width: 0 0 0.5px 0;
+    padding: 5px;
+    }
 
+.menu a{
+    text-decoration: none;
+    color: darkgrey;
+}
 
+.menu a:hover{
+    font-weight: bold;
+    color: darkgray;
+}
+/*pozor - menu tentokrát opravdu funguje! :-)*/
 
 /* OBSAH */
+p {
+    padding: 10px;
+    margin: 15px;
+    }
 
+.obrazek-velky{
+    text-align: center;
+    width: 100%;
+    margin: 30px 0 0 0;
+}
 
+.popisek-velky{
+    text-align: center;
+    color: darkgrey;
+    margin: 0px;
+}
 
+img{
+    text-align: center;
+    width: 100%;
+    margin: 30px 0 0 0;
+} 
+
+h2{
+    padding: 30px 10px 10px 10px;
+    margin: 15px;
+}
+
+hr{
+    border: solid 2px lightblue;
+     height: 0px;
+     width: 80px;
+     margin-left: 0px;
+     text-align: left;
+}    
 
 /* FOTOGALERIE */
+.popisek{
+    text-align: center;
+    color: darkgrey;
+    margin: 0px;
+}
 
+.foto .popisek{
+    font-weight: bold;
+    color: darkgrey;
+}
 
+.popisek-copy{
+    font-weight: normal;
+}
 
+a{
+    color: darkgrey;
+}
+
+.galerie{
+    box-shadow: 0 12px 20px lightgrey;
+}
 
 /* PATICKA */
+.paticka{
+    color: darkgrey;   
+}
+
+/*tablet*/
+@media (min-width: 500px){
+    .menu{
+        display: flex;
+        flex-direction: row;     
+    }
+
+    .menu li{
+        display: flex;
+        justify-content: center;
+        border-width: 0.5px 0;
+        align-items: stretch;
+        flex-basis: calc(100% / 4);
+    }
+    /*linky mezi jednotlivými položkami menu se mi esteticky nelíbí. Proto tam nejsou. 
+    Kdyby tam být museli, tak bych si v html označila úvod a fotogalerii a u nich bych 
+    dala jednu border-line 0. Ostatní položky by měli všude 0.5px*/
+
+    .fotky{
+        display: flex;
+        flex-direction: column;
+    }    
+
+    .popisek-velky {
+        color: #fff;
+        margin: -50px 10px 0 0;
+        text-align: right;
+    }   
+
+    img{
+       margin: 0;
+    }
+
+    .galerie{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 0 0;
+    }
+
+    .foto{
+        width: 50%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .foto .popisek{
+        color:#fff;
+    }
+
+    .foto img{
+        display: block;
+        line-height: 1;
+        transition: 0.6s ease-in-out;
+    }
+
+    .foto:hover .popisek{
+        bottom: 0;
+        width: 100%;
+        transition: 0.7s ease-in;
+    }
+
+    .foto:hover img{
+        transform: scale(1.2);
+        transition: 0.6s ease-in-out;
+    }
+
+    .popisek{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 1px 0px;
+        bottom: -100%;
+        transition: 0.7s ease-in;
+        width: 100%;
+    }
+    .popisek-copy{
+        font-weight: normal;
+        color: #fff;
+    }
+
+    a{
+        color: #fff;
+    }
+
+    .paticka a{
+        color: darkgray;
+    }
+}
+
+/*PC verze*/
+@media (min-width: 1000px){
+    .hlavicka{
+        min-height: 400px;
+    }
+
+    .clanek{
+        background-color: #fff;
+        margin: -50px auto;
+        position: relative;
+        z-index: auto;
+        box-shadow:  2px 12px 20px lightgrey;
+        max-width: 960px;
+        }
+
+    .menu { 
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        float: left;
+        width: 25%;
+        padding-left: 30px;
+        }
+
+    .menu li{
+        border: solid lightgrey;
+        border-width: 0 0 0.5px 0;
+        text-align: left;
+        } 
+
+    .odstavec{
+        float: right;
+        width: 75%;
+        padding: 30px;
+        padding-left: 10px; 
+        }
+
+    .proc-jet{
+        padding-right: 200px;
+    }
+
+    .co-musite{
+        padding-left: 200px;
+    }
+
+    .co-musite-dokonceni{
+        padding-left: 200px;
+    }
+    
+    .foto{
+        width: calc( 100% / 3);
+    }
+    }
